@@ -15,6 +15,9 @@
 </head>
 <body>
 <div class="main-section ">
+<div class="fixed inset-x-0 top-0 flex justify-center pointer-events-none">
+  <img class="h-16 w-16 absolute top-1/2 transform -translate-y-1/2" src="https://openui.fly.dev/openui/50x50.svg?text=🐝" alt="Bee" id="bee" />
+</div>
     <div class="container">
     <!-- header start -->
     <nav class="navbar navbar-expand-lg ">
@@ -314,8 +317,30 @@
         }
       });
     });
+
+
+
+    
   </script>
 
+<script>
+  const bee = document.getElementById('bee');
+  let scrollPos = 0;
+
+  window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+
+      if (scrollY > scrollPos) {
+          // scrolling down
+          bee.style.left = `${parseInt(bee.style.left, 10) + 1}px`;
+      } else {
+          // scrolling up
+          bee.style.left = `${parseInt(bee.style.left, 10) - 1}px`;
+      }
+
+      scrollPos = scrollY;
+  });
+</script>
 
 
 
